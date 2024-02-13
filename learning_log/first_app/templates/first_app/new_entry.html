@@ -1,0 +1,18 @@
+{% extends "first_app/base.html" %}
+{% block content %}
+
+    <h3><a href = "{% url 'first_app:topic' topic.id %}">{{topic}}</a></h3>
+    <h3>Yeni Bir Konu Ekle</h3>
+    <form action ="{% url 'first_app:new_entry' topic.id %}" method='post'>
+        {% csrf_token %}
+        {{form.as_p}}
+        <button name='submit'>Girdi Ekle</button>
+    </form>
+
+
+{% endblock content %}
+
+
+
+
+

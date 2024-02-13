@@ -1,0 +1,20 @@
+{% extends "first_app/base.html" %}
+
+{% block page_header %}
+  <h1>Konular</h1>
+{% endblock page_header %}
+
+{% block content %}
+  <ul>
+    {% for topic in topics %}
+      <li><h3>
+        <a href="{% url 'first_app:topic' topic.id %}">{{ topic }}</a>
+      </h3></li>
+    {% empty %}
+      <li><h3>Henüz konu eklenmedi</h3></li>
+    {% endfor %}
+  </ul>
+
+  <h3><a href="{% url 'first_app:new_topic' %}">Yeni Konu Ekle</a></h3>
+
+{% endblock content %}
